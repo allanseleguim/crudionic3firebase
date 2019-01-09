@@ -4,35 +4,36 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';;
 import { ContactProvider } from '../providers/contact/contact';
+import { FIREBASE_CONFIG } from './app.firebase.config';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyCBU5UbjBlSs4iL3MSfoshOtIT7GlsUqgc",
-      authDomain: "fir-crud-aba42.firebaseapp.com",
-      databaseURL: "https://fir-crud-aba42.firebaseio.com",
-      projectId: "fir-crud-aba42",
-      storageBucket: "fir-crud-aba42.appspot.com",
-      messagingSenderId: "624834715402"
-    }),
-    AngularFireDatabaseModule
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   providers: [
     StatusBar,

@@ -3,7 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
 export class ContactProvider {
-  private PATH = 'contacts/';
+  private PATH = 'contact/';
 
   constructor(private db: AngularFireDatabase) {
   }
